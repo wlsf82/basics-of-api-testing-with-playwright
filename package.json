@@ -1,0 +1,23 @@
+{
+  "name": "basics-of-api-testing-with-playwright",
+  "version": "1.0.0",
+  "description": "👋 Welcome!",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wlsf82/basics-of-api-testing-with-playwright.git"
+  },
+  "keywords": [],
+  "author": "Walmyr <wlsf82@gmail.com> (https://walmyr.dev/)",
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/wlsf82/basics-of-api-testing-with-playwright/issues"
+  },
+  "homepage": "https://github.com/wlsf82/basics-of-api-testing-with-playwright#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^26.1.1"
+  }
+}
