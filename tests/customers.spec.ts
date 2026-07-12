@@ -153,4 +153,10 @@ test.describe('GET /customers', () => {
 
     expect(response.status()).toBe(400)
   })
+
+  test('errors out with 400 status code for invalid industry', async ({ request }) => {
+    const response = await request.get('/customers', { params: { industry: 'Farming' } })
+
+    expect(response.status()).toBe(400)
+  })
 })
