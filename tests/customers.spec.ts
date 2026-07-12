@@ -101,4 +101,17 @@ test.describe('GET /customers', () => {
 
     expect(body.customers.length).toBeLessThanOrEqual(5)
   })
+
+  test('get Medium customers', async ({ request }) => {
+    const response = await request.get('/customers', { params: { size: 'Medium' } })
+
+    expect(response.status()).toBe(200)
+    expect(response.ok()).toBeTruthy()
+
+    const body = await response.json()
+
+    for (const customer of body.customers) {
+      expect(customer.size).toBe('Medium')
+    }
+  })
 })
