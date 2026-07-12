@@ -127,4 +127,14 @@ test.describe('GET /customers', () => {
       expect(customer.industry).toBe('Technology')
     }
   })
+
+  test('errors out with 400 status code for zero, negative, or non-numeric page', async ({ request }) => {
+    for (const page of [0, -1, 'abc']) {
+      await test.step(`rejects page=${page}`, async () => {
+        const response = await request.get('/customers', { params: { page } })
+
+        expect(response.status()).toBe(400)
+      })
+    }
+  })
 })
