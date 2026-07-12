@@ -147,4 +147,10 @@ test.describe('GET /customers', () => {
       })
     }
   })
+
+  test('errors out with 400 status code for invalid size', async ({ request }) => {
+    const response = await request.get('/customers', { params: { size: 'Gigantic' } })
+
+    expect(response.status()).toBe(400)
+  })
 })
