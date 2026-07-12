@@ -90,4 +90,15 @@ test.describe('GET /customers', () => {
 
     expect(body.pageInfo.currentPage).toBe(2)
   })
+
+  test('get customers limited to 5 per page', async ({ request }) => {
+    const response = await request.get('/customers', { params: { limit: 5 } })
+
+    expect(response.status()).toBe(200)
+    expect(response.ok()).toBeTruthy()
+
+    const body = await response.json()
+
+    expect(body.customers.length).toBeLessThanOrEqual(5)
+  })
 })
