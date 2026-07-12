@@ -114,4 +114,17 @@ test.describe('GET /customers', () => {
       expect(customer.size).toBe('Medium')
     }
   })
+
+  test('get customers in the Technology industry', async ({ request }) => {
+    const response = await request.get('/customers', { params: { industry: 'Technology' } })
+
+    expect(response.status()).toBe(200)
+    expect(response.ok()).toBeTruthy()
+
+    const body = await response.json()
+
+    for (const customer of body.customers) {
+      expect(customer.industry).toBe('Technology')
+    }
+  })
 })
