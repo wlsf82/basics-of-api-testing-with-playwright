@@ -137,4 +137,14 @@ test.describe('GET /customers', () => {
       })
     }
   })
+
+  test('errors out with 400 status code for zero, negative, or non-numeric limit', async ({ request }) => {
+    for (const limit of [0, -1, 'abc']) {
+      await test.step(`rejects limit=${limit}`, async () => {
+        const response = await request.get('/customers', { params: { limit } })
+
+        expect(response.status()).toBe(400)
+      })
+    }
+  })
 })
