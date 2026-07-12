@@ -79,4 +79,15 @@ test.describe('GET /customers', () => {
     expect(typeof body.pageInfo.totalPages).toBe('number')
     expect(typeof body.pageInfo.totalCustomers).toBe('number')
   })
+
+  test('get customers from page 2', async ({ request }) => {
+    const response = await request.get('/customers', { params: { page: 2 } })
+
+    expect(response.status()).toBe(200)
+    expect(response.ok()).toBeTruthy()
+
+    const body = await response.json()
+
+    expect(body.pageInfo.currentPage).toBe(2)
+  })
 })
