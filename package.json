@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/wlsf82/basics-of-api-testing-with-playwright#readme",
   "devDependencies": {
-    "@playwright/test": "^1.61.1",
+    "@playwright/test": "^1.62.0",
     "@types/node": "^26.1.1"
   }
 }
